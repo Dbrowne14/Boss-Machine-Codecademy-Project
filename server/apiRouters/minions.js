@@ -1,5 +1,6 @@
 const express = require("express");
 const minionsRouter = express.Router();
+
 const {
   getAllFromDatabase,
   addToDatabase,
