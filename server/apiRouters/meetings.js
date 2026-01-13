@@ -5,6 +5,7 @@ const {
   getAllFromDatabase,
   createMeeting,
   deleteAllFromDatabase,
+  addToDatabase,
 } = require("../db.js");
 
 meetingsRouter.get("/", (_, res) => {
@@ -12,7 +13,8 @@ meetingsRouter.get("/", (_, res) => {
 });
 
 meetingsRouter.post("/", (_, res) => {
-  res.status(201).send(createMeeting());
+  const savedMeeting = addToDatabase("meetings", createMeeting());
+  res.status(201).send(savedMeeting);
 });
 
 meetingsRouter.delete("/", (_, res) => {
